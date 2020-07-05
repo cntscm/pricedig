@@ -9,4 +9,35 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>core</artifactId>
+
+    <dependencies>
+        <!-- Lombok插件 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>1.18.4</version>
+        </dependency>
+        <!-- Mybatis框架 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Druid连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <!-- MySQL连接驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+        <!-- JAVA爬虫框架 -->
+        <dependency>
+            <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+            <artifactId>WebCollector</artifactId>
+        </dependency>
+    </dependencies>
 </project>

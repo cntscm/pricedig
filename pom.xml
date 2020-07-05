@@ -6,56 +6,98 @@
     <modules>
         <module>core</module>
     </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.example</groupId>
     <artifactId>pricedig</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <description>Demo project for Spring Boot</description>
+    <description>pricedig project for WeChat</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <mysql-connector-java.version>8.0.20</mysql-connector-java.version>
+        <druid.version>1.1.14</druid.version>
+        <mybatis.version>1.2.0</mybatis.version>
+        <WebCollector.version>2.73-alpha</WebCollector.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>cn.edu.hfut.dmic.webcollector</groupId>
-            <artifactId>WebCollector</artifactId>
-            <version>2.73-alpha</version>
-
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>logback-classic</artifactId>
-                    <groupId>ch.qos.logback</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
+    <!-- SpringBoot框架 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+            <exclusion>
+                <artifactId>logback-classic</artifactId>
+                <groupId>ch.qos.logback</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <!-- 热部署 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <scope>runtime</scope>
+        <optional>true</optional>
+    </dependency>
+    <!-- JPA -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <!-- Lombok插件 -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+        <version>1.18.4</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.20</version>
+    </dependency>
     </dependencies>
 
+    <!--依赖引入及版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- MySQL连接驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency>
+            <!-- Druid连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- Mybatis框架 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- JAVA爬虫框架 -->
+            <dependency>
+                <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+                <artifactId>WebCollector</artifactId>
+                <version>${WebCollector.version}</version>
+            </dependency>
+    </dependencies>
+    </dependencyManagement>
+
+    <!-- 编译设置 -->
     <build>
         <plugins>
             <plugin>
